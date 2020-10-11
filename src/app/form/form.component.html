@@ -1,0 +1,40 @@
+<form [formGroup]="myForm">
+  
+    <label>
+      Name:
+      <input type="text" formControlName="name">
+    </label>
+    <br/>
+    <label>
+      email:
+      <input type="email" formControlName="email">
+    </label>
+  
+</form>
+<form [formGroup]="myForm">
+    <label>
+        Feedback:
+    </label>
+    <br/>
+    <label>
+        <input type="radio" formControlName="feedback" value="great">
+        Great
+    </label><br/>
+    <label>
+        <input type="radio" formControlName="feedback" value="okay">
+        Okay
+    </label><br/>
+    <label>
+        <input type="radio" formControlName="feedback" value="notgood">
+        Not Good
+    </label><br/>
+</form>
+<form [formGroup]="myForm">
+    <label>
+        Comments:
+        <textarea type="text" formControlName="name"></textarea>
+    </label>
+</form>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
