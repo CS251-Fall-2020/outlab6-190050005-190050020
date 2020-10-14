@@ -35,6 +35,8 @@ export class FormComponent {
   }
 
   onSubmit() {
-    alert("Submitting!");
+    var json = JSON.stringify(this.myForm.getRawValue());
+    this.formService.sendData(json).subscribe(response => console.log(response));
+    alert("Submitted Data!");
   }
 }
