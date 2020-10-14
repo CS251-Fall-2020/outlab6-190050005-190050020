@@ -1,5 +1,4 @@
 <form [formGroup]="myForm">
-  
     <label>
       Name:
       <input type="text" formControlName="name">
@@ -9,32 +8,28 @@
       email:
       <input type="email" formControlName="email">
     </label>
-  
-</form>
-<form [formGroup]="myForm">
+    <br/>
     <label>
         Feedback:
     </label>
     <br/>
     <label>
-        <input type="radio" formControlName="feedback" value="great">
+        <input type="radio" formControlName="feedback" value="Great">
         Great
     </label><br/>
     <label>
-        <input type="radio" formControlName="feedback" value="okay">
+        <input type="radio" formControlName="feedback" value="Okay">
         Okay
     </label><br/>
     <label>
-        <input type="radio" formControlName="feedback" value="notgood">
+        <input type="radio" formControlName="feedback" value="Not good">
         Not Good
     </label><br/>
-</form>
-<form [formGroup]="myForm">
     <label>
         Comments:
-        <textarea type="text" formControlName="name"></textarea>
+        <textarea type="text" formControlName="comment"></textarea>
     </label>
 </form>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
 </form>
