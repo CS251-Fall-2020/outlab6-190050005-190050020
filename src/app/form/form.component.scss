@@ -1,3 +1,11 @@
+html{
+    background: url("https://wallpaperaccess.com/full/41291.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 form{
     margin: 0 auto;
     width:250px;
@@ -5,6 +13,17 @@ form{
 
 input {
     width: 100%;
+}
+
+label{
+    font-style:italic;
+    font-size: large;
+    color:yellow;
+}
+
+button{
+    color:white;
+    background-color: green;
 }
 
 input[type=text] {

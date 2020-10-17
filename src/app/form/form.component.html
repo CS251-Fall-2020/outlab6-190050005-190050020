@@ -1,3 +1,4 @@
+<html>
 <form [formGroup]="myForm">
     <br>
     <label>
@@ -6,7 +7,7 @@
     </label>
     <br/>
     <label>
-      email:
+      email address:
       <input type="email" formControlName="email">
     </label>
     <br/>
@@ -32,3 +33,4 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <button type="submit" [disabled]="!myForm.valid">Submit</button>
 </form>
+</html>
