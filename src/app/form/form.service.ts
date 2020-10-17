@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
+import { Form } from '@angular/forms';
 
 export interface FormFace {
   name: string;
@@ -33,11 +34,16 @@ export class FormService {
     return throwError('Oops, something went wrong!');
   }
 
-  getData() {
+  getData() { 
     return this.http.get<FormFace>(this.getUrl).pipe(catchError(this.handleError));
   }
 
+  onSuccess(response) {
+    alert('Submitted data succesfully!');
+    return response;
+  }
+
   sendData(data: string): Observable<FormFace> {
-    return this.http.post<FormFace>(this.postUrl, data).pipe(catchError(this.handleError));
+    return this.http.post<FormFace>(this.postUrl, data).pipe(map(this.onSuccess),catchError(this.handleError));
   }
 }
