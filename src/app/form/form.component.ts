@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
 import { FormFace, FormService } from './form.service';
 
 @Component({
@@ -12,10 +12,10 @@ export class FormComponent {
   }
 
   myForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    feedback: new FormControl(''),
-    comment: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    feedback: new FormControl('', Validators.required),
+    comment: new FormControl('', Validators.required),
   });
 
   showData() {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 export interface FormFace {
   name: string;
@@ -19,11 +19,25 @@ export class FormService {
   getUrl = 'https://cs251-outlab-6.herokuapp.com/initial_values/';
   postUrl = 'https://cs251-outlab-6.herokuapp.com/add_new_feedback/';
 
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred.', error.message);
+      alert('Oops, a network/client-side error has occurred. Please try again later.');
+    }
+    else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.message}`);
+      alert(`Oops, the server returned an error. Please try again later.\n\nError code: ${error.status}\nError message: ${error.message}`);
+    }
+    return throwError('Oops, something went wrong!');
+  }
+
   getData() {
-    return this.http.get<FormFace>(this.getUrl);
+    return this.http.get<FormFace>(this.getUrl).pipe(catchError(this.handleError));
   }
 
   sendData(data: string): Observable<FormFace> {
-    return this.http.post<FormFace>(this.postUrl, data);
+    return this.http.post<FormFace>(this.postUrl, data).pipe(catchError(this.handleError));
   }
 }
