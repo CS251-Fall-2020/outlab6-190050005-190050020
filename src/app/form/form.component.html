@@ -1,4 +1,5 @@
 <form [formGroup]="myForm">
+    <br>
     <label>
       Name:
       <input type="text" formControlName="name">
@@ -13,18 +14,16 @@
         Feedback:
     </label>
     <br/>
+    <div class="wrapper-class">
     <label>
         <input type="radio" formControlName="feedback" value="Great">
         Great
-    </label><br/>
-    <label>
         <input type="radio" formControlName="feedback" value="Okay">
         Okay
-    </label><br/>
-    <label>
         <input type="radio" formControlName="feedback" value="Not good">
         Not Good
     </label><br/>
+    </div>
     <label>
         Comments:
         <textarea type="text" formControlName="comment"></textarea>
