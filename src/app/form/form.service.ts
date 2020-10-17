@@ -39,7 +39,7 @@ export class FormService {
   }
 
   onSuccess(response) {
-    alert('Submitted data succesfully!');
+    alert('Submitted data successfully!');
     return response;
   }
 
